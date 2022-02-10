@@ -16,7 +16,7 @@ module.exports = {
       cooldown.add(message.author.id);
       setTimeout(() => {
         cooldown.delete(message.author.id)
-      }, 90e5)
+      }, 900000)
 
 
     
@@ -37,19 +37,20 @@ module.exports = {
         const mineral = data.gold
         const coinFlip = Math.floor(Math.random() * 130) + 3
 
-        const embed = new MessageEmbed()
-        .setTitle(`Mineria Torrecoin`)
-        .setDescription(`Preparando mineria`)
 
         await economia.findOneAndUpdate({userID: message.author.id}, {gold: mineral + Number(coinFlip)})
 
-       message.reply({embeds: [embed]}).then(m =>{
-         setTimeout(()=> {m.edit("**[Cargando..]**"), 13400})
-         setTimeout(()=> {m.edit("**[$%&%$/&&%/%&/57//_//%5]**"), 14400})
-         setTimeout(()=> {m.edit("**[$%&%$/&&%/%&/57//_//%45]**"), 15000})
-         setTimeout(()=> {m.edit("**[$%&%$/&&%/%&/57//_//%75]**"), 16100})
-         setTimeout(() => {m.delete()}, 17100)
-         setTimeout(()=> {m.edit(`**Oro minado \`${coinFlip}\`<:Gold:915760542579310592> con exito!**`), 17500})
+       message.channel.send("> **Mineria v0.1**").then(m =>{
+         setTimeout(()=> {m.edit("**[Cargando..]**")}, 3000)
+         setTimeout(()=> {m.edit("**[$%&%$/&&%/%&/57//_//%5]**")}, 4000)
+         setTimeout(()=> {m.edit("**[$%&%$/&&%/%&/57//_//%45]**")}, 5000)
+         setTimeout(()=> {m.edit("**[$%&%$/&&%/%&/57//_//%75]**")}, 6000)
+         setTimeout(()=> {m.edit("**[$%&%$/&&%/%&/57//_//%79]**")}, 7000)
+         setTimeout(()=> {m.edit("**[$%&%$/&&%/%&/57//_//%90]**")}, 8000)
+         setTimeout(()=> {m.edit("**[$%&%$/&&%/%&/57//_//%100]**")}, 9000)
+         setTimeout(()=> {m.edit("**[$%&%$/&&%/%&/57//_//COMPLETE_MINER.torreCoin]**")}, 10000)
+         setTimeout(() => {m.delete()}, 11000)
+         setTimeout(()=> {message.channel.send(`**Oro minado \`${coinFlip}\`<:Gold:915760542579310592> con exito!**`)}, 12000)
        })
 
   }
