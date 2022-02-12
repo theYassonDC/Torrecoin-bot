@@ -20,22 +20,8 @@
       {
         "id": "82daaa9c-56c9-4964-a74c-7f54483c089e",
         "line": 1,
-        "version": 894,
+        "version": 898,
         "index": 0
-      }
-    ],
-    "index.js": [
-      {
-        "id": "a2c86374-cc37-4c9d-b973-ba208d8a0015",
-        "line": 28,
-        "version": 148,
-        "index": 930
-      },
-      {
-        "id": "ef4fc863-16d7-4fa2-a591-e967867b8728",
-        "line": 28,
-        "version": 148,
-        "index": 931
       }
     ]
   }

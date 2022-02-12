@@ -15,8 +15,9 @@ mongoose.connect(process.env[`mongo`], {
 client.once("ready", (bot) => {
     console.log("----------------------------------------------------------");
     console.log(`Bot: ${bot.user.username}\nStats ${bot.presence.status}`)
-    console.log("--------------------------------------------------------Botn\n-----[Bot logs torrecoin]-----")
-});
+    console.log("--------------------------------------------------------Botn\n-----[Bot logs torrecoin]")
+    console.log(`[INFO]   Bot conectado exitosamente! ${client.user.tag}`)
+})
 
 
 client.commands = new discord.Collection();
