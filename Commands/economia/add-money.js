@@ -24,11 +24,11 @@ module.exports = {
     let money = eco.monedas
     let added = Number(args[0])
     if(!added) return message.reply("Agrega la cantidad que quieres agregar de dinero")
-
+    let conv3 = (added) => String(added).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     await economia.findOneAndUpdate({userID: member.id}, {monedas: money + Number(added)})
 
     const balance = new MessageEmbed()
-    .setDescription(`El administrador ${message.author} agrego la cantidad de **$${added}** dinero al usuario ${member}`)
+    .setDescription(`El administrador ${message.author} agrego la cantidad de **$${conv3(added)}** dinero al usuario ${member}`)
     .setColor(`GREEN`)
     message.reply({embeds:[balance]})
   }

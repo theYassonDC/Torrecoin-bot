@@ -15,12 +15,13 @@ module.exports = {
     let diamond = eco.diamond
     let added = Number(args[0])
     if(!added) return message.reply("Agrega la cantidad que quieres agregar de dinero")
-
-    if(added > diamond) return message.reply(`**El usuario ${member} solo tiene \`${diamond}\`**`)
+    let conv3 = (diamond) => String(diamond).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    let conv2 = (added) => String(added).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    if(added > diamond) return message.reply(`**El usuario ${member} solo tiene \`${conv3(diamond)}\`**`)
     await economia.findOneAndUpdate({userID: member.id}, {diamond: diamond - Number(added)})
 
     const balance = new MessageEmbed()
-    .setDescription(`El administrador ${message.author} elimino la cantidad de **$${added}** diamantes al usuario ${member}`)
+    .setDescription(`El administrador ${message.author} elimino la cantidad de **$${conv2(added)}** diamantes al usuario ${member}`)
     .setColor(`RED`)
     message.reply({embeds:[balance]})
   }
