@@ -8,14 +8,6 @@
         "index": 169
       }
     ],
-    "Commands/economia/work.js": [
-      {
-        "id": "cdf4bb32-4a22-4519-916a-379dac352459",
-        "line": 24,
-        "version": 1951,
-        "index": 781
-      }
-    ],
     "events/guils/messageCreate.js": [
       {
         "id": "82daaa9c-56c9-4964-a74c-7f54483c089e",

@@ -33,7 +33,7 @@ module.exports = {
     let conv3 = (coinFlip) => String(coinFlip).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     
     const embed = new MessageEmbed()
-    .setTitle(`Recompensa diaria reclamada! ${message.author.name}`)
+    .setTitle(`Recompensa diaria reclamada! ${message.author.tag}`)
     .setDescription(`> <:moneda:909696267821658112> **Monedas :** \`${conv3(coinFlip)}\`\n> <:Gold:915760542579310592>**Oro :** \`${goldFlip}\``)
     .setColor(`#fw5e3`)
     .setFooter(`Hoy - ${message.createdAt.toLocaleDateString("en-us")}`)

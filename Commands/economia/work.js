@@ -24,7 +24,6 @@ module.exports = {
               Diamond: 0
           })
           await datosnuevos.save()
-          return message.reply("Datos guardados!!, usa el comando nuevamente")
       }
       const dinero = data.monedas
       const coinFlip = Math.floor(Math.random() * 830) + 4

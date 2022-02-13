@@ -14,7 +14,7 @@ const economia = new Schema({
         type: Number,
         default: 0
     },
-    tarjetaNvl1: {
+    banco: {
         type: Number,
         default: 0
     }
