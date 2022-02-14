@@ -16,13 +16,13 @@ module.exports = {
       await economia.findOneAndUpdate({userID: message.author.id}, {monedas: money.monedas + money.banco})
       message.reply({embeds: [message1]})
     }else{
-      let opt = args[0]
+      let opt = Number(args[0])
       if(!opt) return message.reply("No encuentro algún valor escribe `$with-bank (cantidad) o all`")
-      if(opt > money.monedas) return message.reply(`No tienes esa cantidad en tu banco!!`)
+      if(opt < money.monedas) return message.reply(`No tienes esa cantidad en tu banco!!`)
       const message2 = new MessageEmbed()
-      .setDescription(`${message.author} retiraste a tu banco la cantidad de ${args[0]} correctamente!!`)
-      await economia.findOneAndUpdate({userID: message.author.id}, {banco: money.banco - Number(opt)})
-      await economia.findOneAndUpdate({userID: message.author.id}, {monedas: money.monedas + Number(opt)})
+      .setDescription(`${message.author} retiraste a tu banco la cantidad de ${opt} correctamente!!`)
+      await economia.findOneAndUpdate({userID: message.author.id}, {banco: money.banco - opt})
+      await economia.findOneAndUpdate({userID: message.author.id}, {monedas: money.monedas + opt})
       message.reply({embeds: [message2]})
     }
 
