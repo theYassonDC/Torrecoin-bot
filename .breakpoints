@@ -8,12 +8,12 @@
         "index": 169
       }
     ],
-    "events/guils/messageCreate.js": [
+    "handlers/eventshandler.js": [
       {
-        "id": "82daaa9c-56c9-4964-a74c-7f54483c089e",
-        "line": 1,
-        "version": 898,
-        "index": 0
+        "id": "848fff01-1da9-4d9c-80ea-fe594d61dacc",
+        "line": 9,
+        "version": 57,
+        "index": 302
       }
     ]
   }

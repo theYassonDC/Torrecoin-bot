@@ -2,7 +2,9 @@ require("dotenv").config();
 const prefix = process.env.PREFIX;
 const adm = require('../../Shema/rank')
 
-module.exports = async (client, discord, message) => {
+module.exports = {
+  name:`messageCreate`,
+  run(client, message){
   if (message.author.bot || message.channel.type === "dm") return;
   if (!message.guild) return
 
@@ -15,4 +17,5 @@ module.exports = async (client, discord, message) => {
   if (cmds) {
     cmds.execute(client, message, args)
   }
-};
+  }
+}

@@ -21,7 +21,7 @@ module.exports = {
     let pos = 0;
     for(obj of miembro){
       pos+1
-      if(obj.userID == data.userID){
+      if(obj.userID === data.userID){
         embed.setFooter(`Estas en la posicion - #${pos}`)
       }
     }
