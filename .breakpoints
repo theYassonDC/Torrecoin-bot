@@ -11,9 +11,9 @@
     "handlers/eventshandler.js": [
       {
         "id": "848fff01-1da9-4d9c-80ea-fe594d61dacc",
-        "line": 9,
-        "version": 57,
-        "index": 302
+        "line": 1,
+        "version": 117,
+        "index": 0
       }
     ]
   }
