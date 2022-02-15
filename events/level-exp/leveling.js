@@ -19,7 +19,7 @@ module.exports = {
     }
     await nivel.findOneAndUpdate({user: message.author.id}, {exp: level.exp +5})
     let niveliado = level.level
-    const calculator = niveliado * 25
+    const calculator = niveliado * 100
     if(level.exp >= calculator){
       await nivel.findOneAndUpdate({user: message.author.id}, {level: niveliado +1})
       await nivel.findOneAndUpdate({user: message.author.id},{exp: 0})
