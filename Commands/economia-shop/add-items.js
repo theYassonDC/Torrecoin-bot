@@ -10,6 +10,8 @@ module.exports = {
     const administrador = await adm.findOne({user: message.author.id})
     if(!administrador) return message.reply("<:modBag:915764671204692008> | **No eres administrador para usar este comando**")
 
+    const idRandom = Math.round(Math.random()*100+30)
+    
     const producto1 = String(args.slice(1).join(" "))
     const precio1 = Number(args[0])
     let conv = (precio1) => String(precio1).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -20,21 +22,23 @@ module.exports = {
     const data = await economia.findOne({ userID: message.author.id })
     if (!data) {
       let datos_nuevos = new economia({
+        id: idRandom,
         userID: message.author.id,
         producto: producto1,
         precio: precio1
       })
       await datos_nuevos.save()
-      return  message.reply(`**Nuevo producto**\nNombre: \`${producto1}\`\nPrecio: \`$${conv(precio1)}\` `)
+      return  message.reply(`**Nuevo producto**\nNombre: \`${producto1}\`\nPrecio: \`$${conv(precio1)}\`\nID: \`${idRandom}\` `)
     }
     if(data){
       let datos_nuevos = new economia({
+        id: idRandom,
         userID: message.author.id,
         producto: producto1,
         precio: precio1
       })
       await datos_nuevos.save()
-      return  message.reply(`**Nuevo producto**\nNombre: \`${producto1}\`\nPrecio: \`$${conv(precio1)}\` `)
+      return  message.reply(`**Nuevo producto**\nNombre: \`${producto1}\`\nPrecio: \`$${conv(precio1)}\`\nID: \`${idRandom}\` `)
     }
 
   }

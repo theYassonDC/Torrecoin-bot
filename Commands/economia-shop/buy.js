@@ -9,8 +9,8 @@ module.exports = {
   alias: ["buyitems", "buy-item"],
   async execute(client, message, args){
     const money = await eco.findOne({userID: message.author.id})
-    let buy = String(args[0])
-    const items = await economia.findOne({producto:buy})
+    let buy = String(args[0])|| Number(args[0])
+    const items = await economia.findOne({producto:buy}) || await economia.findOne({id: buy})
     
     if(!buy) return message.channel.send(`Que item quieres comprar de la tienda?`)
 
@@ -30,9 +30,9 @@ module.exports = {
       if(data){
         const addItem = Object.keys(data.item).includes(buy);
         if(!addItem){
-          data.item[buy] = 1;
+          data.item[items.producto] = 1 
         }else {
-          data.item[buy]++
+          data.item[items.producto]++ 
         }
         await inventory.findOneAndUpdate(params, data)
         await eco.findOneAndUpdate({userID: message.author.id}, {monedas: balance - Number(priceItem)})       
@@ -41,12 +41,12 @@ module.exports = {
           server: message.guild.id,
           userID: message.author.id,
           item: {
-            [buy]: 1
+            [items.producto]: 1
           }
         }).save()
       }
       await eco.findOneAndUpdate({userID: message.author.id}, {monedas: balance - Number(priceItem)})
-      message.reply(`Compraste el item llamado ${buy} por el valor de ${conv(priceItem)}`)
+      message.reply(`Compraste el item llamado ${items.producto} por el valor de ${conv(priceItem)}`)
     })
     
   }

@@ -13,7 +13,7 @@ module.exports = {
     let list = datos.map((product, index)=>{
       const monedas = product.precio
       let conv = (monedas) => String(monedas).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-      return `${index+1}. **${product.producto}** - <:moneda:909696267821658112>${conv(monedas)}\n` 
+      return `\`ID: ${product.id}\`. **${product.producto}** - <:moneda:909696267821658112>${conv(monedas)}\n` 
     })
 
     let listShop = list.join("\n")
