@@ -6,19 +6,17 @@ const eco = require(`../../Shema/economia-shema`)
 
 module.exports = {
    name: "buyitem",
-  alias: ["buyitems", "buy-item"],
+  alias: ["buyitems", "buy-item", "buy"],
   async execute(client, message, args){
     const money = await eco.findOne({userID: message.author.id})
-    let buy = String(args[0])|| Number(args[0])
+    let buy = args[0]
     const items = await economia.findOne({producto:buy}) || await economia.findOne({id: buy})
     
     if(!buy) return message.channel.send(`Que item quieres comprar de la tienda?`)
-
     if(!items.producto) return message.channel.send(`No se encuentra el item llamado ${buy} en la tienda`)
-
     const priceItem = items.precio
     let conv = (priceItem) => String(priceItem).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    
+    const count = 0
     const balance = money.monedas
 
     if(balance < priceItem) return message.reply(`No tienes la cantidad que se requiere para comprar el item cuesta ${priceItem}`)
@@ -28,11 +26,23 @@ module.exports = {
     }
     const db_inventory = inventory.findOne(params, async(err,data)=>{
       if(data){
-        const addItem = Object.keys(data.item).includes(buy);
+        const addItem = Object.keys(data.item).includes(items.producto);
         if(!addItem){
-          data.item[items.producto] = 1 
+          data.item[items.producto] = {
+              name: items.producto,
+              id: items.id,
+              cantidad: 1
+            }
+          
         }else {
-          data.item[items.producto]++ 
+          const inventoryVal = Object.values(data.item)
+          for(invVal of inventoryVal){
+          data.item[items.producto] = {
+            name: items.producto,
+            id: items.id,
+            cantidad: invVal.cantidad +1
+          }
+          }
         }
         await inventory.findOneAndUpdate(params, data)
         await eco.findOneAndUpdate({userID: message.author.id}, {monedas: balance - Number(priceItem)})       
@@ -41,7 +51,11 @@ module.exports = {
           server: message.guild.id,
           userID: message.author.id,
           item: {
-            [items.producto]: 1
+            [items.producto]: {
+              name: items.producto,
+              id: items.id,
+              cantidad: 1
+            }
           }
         }).save()
       }
