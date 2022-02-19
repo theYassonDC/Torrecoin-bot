@@ -10,15 +10,14 @@ module.exports = {
   async execute(client, message, args){
     const money = await eco.findOne({userID: message.author.id})
     let buy = args[0]
-    const items = await economia.findOne({producto:buy}) || await economia.findOne({id: buy})
+try{
+    const items = await economia.findOne({producto:buy}) ||  await economia.findOne({id: buy})
     
     if(!buy) return message.channel.send(`Que item quieres comprar de la tienda?`)
-    if(!items.producto) return message.channel.send(`No se encuentra el item llamado ${buy} en la tienda`)
     const priceItem = items.precio
     let conv = (priceItem) => String(priceItem).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    const count = 0
     const balance = money.monedas
-
+      
     if(balance < priceItem) return message.reply(`No tienes la cantidad que se requiere para comprar el item cuesta ${priceItem}`)
     let params = {  
       server: message.guild.id,
@@ -62,6 +61,9 @@ module.exports = {
       await eco.findOneAndUpdate({userID: message.author.id}, {monedas: balance - Number(priceItem)})
       message.reply(`Compraste el item llamado ${items.producto} por el valor de ${conv(priceItem)}`)
     })
+  }catch(err){
+    message.reply(`${buy} no esta o no existe en la tienda global \nPara buscar ver items disponibles escribe: \`$shop\` `)
+  }
     
   }
 }
