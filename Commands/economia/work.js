@@ -26,7 +26,7 @@ module.exports = {
           await datosnuevos.save()
       }
       const dinero = data.monedas
-      const coinFlip = Math.floor(Math.random() * 830) + 4
+      const coinFlip = Math.floor(Math.random() * 430) 
 
 
       const msg = [`Felicidades luego de un buen farmeo ganaste la cantidad de ${coinFlip}<:moneda:909696267821658112>`, `Eres un maestro de las minado torrecoin pudiste ganar esta cantidad: ${coinFlip}<:moneda:909696267821658112>`, `[GFHDF] Segun los calculos hechos en este momento por el work pudiste ganar ${coinFlip}<:moneda:909696267821658112>`, `GG | Ganaste la cantidad de ${coinFlip}<:moneda:909696267821658112>`, `Sigue asi ganaste ${coinFlip}<:moneda:909696267821658112>`, `Desifraste algunos codigos de la blockchain de torrecoin y ganaste la cantidad de ${coinFlip} <:moneda:909696267821658112>!!`, `**El programador de torrecoin te dio la cantidad de \`${coinFlip}\` por ayudarlo en un bug sin que lo reportes sjajsajsa grande!!**`]
