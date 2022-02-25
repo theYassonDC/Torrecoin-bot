@@ -5,7 +5,7 @@ const Discord = require('discord.js')
 
 module.exports = {
    name: "rank",
-  alias: ["nivel"],
+  alias: ["nivel", "level", "lvl"],
   async execute(client, message, args){
     const member = message.mentions.users.first() || message.author
     const data = await nivel.findOne({user: member.id})
