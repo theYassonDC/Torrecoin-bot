@@ -5,7 +5,6 @@ const adm = require(`../../Shema/rank`)
 module.exports = {
   name: "balance",
   alias: ["bal", "dinero"],
-  rank: true,
   async execute(client, message, args) {
     const member = message.mentions.users.first() || message.author
     let datos = await economia.findOne({ userID: member.id })

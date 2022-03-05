@@ -7,9 +7,8 @@ const adm = require(`../../Shema/rank`);
 module.exports = {
    name: "delete-item",
   alias: ["del-item","remove-item"],
+  rank: true,
   async execute(client, message, args){
-    const administrador = await adm.findOne({user: message.author.id}) 
-    if(!administrador) return message.reply("<:modBag:915764671204692008> | **No eres administrador para usar este comando**")
     try{
       
     const item = String(args[0]) || Number(args[0])

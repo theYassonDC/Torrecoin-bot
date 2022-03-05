@@ -6,10 +6,8 @@ const adm = require(`../../Shema/rank`);
 module.exports = {
    name: "add-item",
   alias: ["add-shop"],
+  rank: true,
   async execute(client, message, args){
-    const administrador = await adm.findOne({user: message.author.id})
-    if(!administrador) return message.reply("<:modBag:915764671204692008> | **No eres administrador para usar este comando**")
-
     const idRandom = Math.round(Math.random()*100+30)
     
     const producto1 = String(args.slice(1).join(" "))

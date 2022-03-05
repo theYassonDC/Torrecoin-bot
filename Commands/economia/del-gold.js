@@ -5,10 +5,8 @@ const adm = require(`../../Shema/rank`)
 module.exports = {
    name: "del-gold",
   alias: ["del-gold", "remove-golds", "remove-gold"],
+  rank: true,
   async execute(client, message, args){
-    const administrador = await adm.findOne({user: message.author.id})
-    if(!administrador) return message.reply("<:modBag:915764671204692008> | **No eres administrador para usar este comando**")
-    
   const member = message.mentions.members.first() || message.guild.members.cache.get(args[1]) 
   if(!args[1]) return message.reply(`Menciona a un usuario`)    
     const eco = await economia.findOne({userID: member.id})
