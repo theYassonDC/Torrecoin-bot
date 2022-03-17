@@ -10,6 +10,9 @@ module.exports = m.model(`level`, new m.Schema({
   level: {
     type: Number,
     default: 1
+  },
+  expTotal: {
+    type:Number
   }
 })
 )
