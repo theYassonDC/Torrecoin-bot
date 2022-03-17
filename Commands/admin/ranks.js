@@ -14,11 +14,11 @@ module.exports = {
     const pre = await premium.find()
     // recorrer
     const list = datos.map((va, ind)=>{
-      return `\n<:adminBag:915764425410084934> **\`${ind+1}\`** - <@!${va.user}>`
+      return `\n<:adminBag:915764425410084934> **\`${ind+1}\`** - [${va.target}](https://torrecoin.gg)`
     }).slice(0, 20)
     
     const listTesters = testers.map((val, ind)=>{
-      return `\n **\`${ind+1}\`** - <@!${val.user}>`
+      return `\n **\`${ind+1}\`** - [${val.target}](https://torrecoin.gg)`
     }).slice(0, 20)
 
     const premiums = pre.map((values, inds)=>{
