@@ -15,6 +15,14 @@
         "version": 117,
         "index": 0
       }
+    ],
+    "index.js": [
+      {
+        "id": "4a47cf2c-909c-4564-8470-8559fd80cb6c",
+        "line": 30,
+        "version": 237,
+        "index": 1000
+      }
     ]
   }
 }
