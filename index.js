@@ -12,7 +12,7 @@ mongoose.connect(process.env[`mongo`], {
 }).then(db => console.log("[INFO]   Conectado a la data base JuandaADM"))
 .catch(err => console.log(err))
 
-client.once("ready", (bot) => {
+client.on("ready", (bot) => {
     console.log("----------------------------------------------------------");
     console.log(`Bot: ${bot.user.username}\nStats ${bot.presence.status}`)
     console.log("--------------------------------------------------------Botn\n-----[Bot logs torrecoin]")
