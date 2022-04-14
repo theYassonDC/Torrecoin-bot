@@ -17,7 +17,7 @@ if(!adms){
       cooldown.add(message.author.id);
       setTimeout(() => {
         cooldown.delete(message.author.id)
-      }, 90000)
+      }, 9000000)
 }
       const data = await economia.findOne({userID: message.author.id})
       const reply = await replies.find()
