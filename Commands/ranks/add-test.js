@@ -4,6 +4,7 @@ const adm = require(`../../Shema/rank`);
 module.exports = {
    name: "add-tester",
   alias: ["add-testiador", "give-tester"],
+  admin: true,
   async execute(client, message, args){
     const rol = message.guild.roles.cache.find(role => role.id === `915770314326179880`)
     const administrador = await adm.findOne({user: message.author.id})

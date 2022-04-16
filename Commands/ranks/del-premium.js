@@ -4,6 +4,7 @@ const adm = require(`../../Shema/rank`);
 module.exports = {
    name: "del-premium",
   alias: ["del-premium", "remove-premium"],
+  admin: true,
   async execute(client, message, args){
     const administrador = await adm.findOne({user: message.author.id})
     if(!administrador) return message.reply("<:modBag:915764671204692008> | **No eres administrador para usar este comando**")  

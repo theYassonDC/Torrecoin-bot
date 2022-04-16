@@ -15,18 +15,19 @@ module.exports = {
   const args = message.content.slice(prefix.length).trim().split(/ +/g)
   const command = args.shift().toLowerCase();
   let cmds = client.commands.find((c) => c.name === command || (c.alias && c.alias.includes(command)));
+    // Questions
+  if(!cmds) return message.channel.send("No tengo ese comando en mi lista, consulte escribiendo `$commands` para ver todos mis comandos")
     // Command rank
-    if(!cmds) return message.channel.send("No tengo ese comando en mi lista, consulte escribiendo `$commands` para ver todos mis comandos")
-    if(cmds.rank){
+  if(cmds.admin){
       let valid = await adm.findOne({user: message.author.id})
       if(!valid) return message.reply(`<:modBag:915764671204692008> | **No eres administrador para usar este comando**`)
-    }
-    if(cmds.rank2){
-      let validation = await tester.findOne({user: message.author.id})
-      if(!validation) return message.reply(`<:modBag:915764671204692008> | **Este comando solo puede ser utilizado para los testiadores!*\n\n[!] Pronto comando publico**`)
-    }
+  }
+  if(cmds.tester){
+    let validation = await tester.findOne({user: message.author.id})
+    if(!validation) return message.reply(`<:modBag:915764671204692008> | **Este comando solo puede ser utilizado para los testiadores!*\n\n[!] Pronto comando publico**`)
+  }
     // Ejecutar args
-  if (cmds) {
+    if(cmds) {
     cmds.execute(client, message, args)
   }
   }

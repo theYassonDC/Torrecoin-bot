@@ -5,7 +5,7 @@ const adm = require(`../../Shema/rank`)
 module.exports = {
    name: "del-gold",
   alias: ["del-gold", "remove-golds", "remove-gold"],
-  rank: true,
+  admin: true,
   async execute(client, message, args){
   const member = message.mentions.members.first() || message.guild.members.cache.get(args[1]) 
   if(!args[1]) return message.reply(`Menciona a un usuario`)    
