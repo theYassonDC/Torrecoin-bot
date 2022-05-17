@@ -6,22 +6,22 @@ module.exports = {
    name: "leaderboard-money",
   alias: ["lb-money"],
   async execute(client, message, args){
-    const data =  await economia.find({__:0})
+    const data =  await economia.find()
 
 
     const embed = new MessageEmbed().setTitle(`leaderboard - Money`).setColor(`GREEN`)
     const nums = data.sort((a,b)=>{
-      return b.monedas - a.monedas
+      return b.monedas - a.monedas 
     })
 
     let miembro = nums.filter(function isBigEnough(value){
-      return value.monedas > 1
+      return value.monedas > 1 
     })
 
     let pos = 0;
     for(obj of miembro){
       pos+1
-      if(obj.userID == data.userID){
+      if(obj.userID === data.userID){
         embed.setFooter(`Estas en la posicion - #${pos}`)
       }
     }

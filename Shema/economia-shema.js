@@ -14,7 +14,11 @@ const economia = new Schema({
         type: Number,
         default: 0
     },
-    tarjetaNvl1: {
+    bitcoin:{
+      type: Number,
+      default: 0
+    },
+    banco: {
         type: Number,
         default: 0
     }

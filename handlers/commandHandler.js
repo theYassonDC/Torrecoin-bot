@@ -10,7 +10,6 @@ module.exports = (client, discord) => {
         for (const file of commands){
             const cmd = require(`../Commands/${dir}/${file}`)
             if(cmd.name){
-                console.log("| [✅] " + cmd.name);
                 client.commands.set(cmd.name, cmd)
             } else {
                 console.log(`Error de comando: ${cmd.name}`)

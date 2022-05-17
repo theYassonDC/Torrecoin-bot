@@ -8,34 +8,20 @@
         "index": 169
       }
     ],
-    "Commands/economia/work.js": [
+    "handlers/eventshandler.js": [
       {
-        "id": "cdf4bb32-4a22-4519-916a-379dac352459",
-        "line": 24,
-        "version": 1951,
-        "index": 781
-      }
-    ],
-    "events/guils/messageCreate.js": [
-      {
-        "id": "82daaa9c-56c9-4964-a74c-7f54483c089e",
+        "id": "848fff01-1da9-4d9c-80ea-fe594d61dacc",
         "line": 1,
-        "version": 894,
+        "version": 117,
         "index": 0
       }
     ],
     "index.js": [
       {
-        "id": "a2c86374-cc37-4c9d-b973-ba208d8a0015",
-        "line": 28,
-        "version": 148,
-        "index": 930
-      },
-      {
-        "id": "ef4fc863-16d7-4fa2-a591-e967867b8728",
-        "line": 28,
-        "version": 148,
-        "index": 931
+        "id": "4a47cf2c-909c-4564-8470-8559fd80cb6c",
+        "line": 30,
+        "version": 276,
+        "index": 986
       }
     ]
   }

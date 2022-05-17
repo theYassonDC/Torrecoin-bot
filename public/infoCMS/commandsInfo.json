@@ -1,0 +1,5 @@
+{
+  "general":"<:exp:960234903247663104> **Selecciona alguna categoria del menu para poder ver todos los comandos de tal categoria.**\n[-------------------------------------------------------](https://torrecoin.gg)\n<:superidol:942188882114543646> `|` **Premium**\n💸 `|` **Economia general**\n<:inv:955021488518475826> `|` **Tienda global & items**\n⭐ `|` **Comandos utiles**\n<:moneda:909696267821658112> `|` **Economia minera blockchain**\n[-------------------------------------------------------](https://torrecoin.gg)",
+  "economyCMS": "`$balance (@user)` - Balance de tus monedas\n`$work` - Trabaja para ganar monedas\n`$dep (cantidad) or all` - depositar monedas en tu banco\n`$with (cantidad) or all` - Retirar dinero de banco\n`$daily` - Obten recompenza cada 24h",
+  "shopCMS": "`$buy (item) or (id)` - Compra un item\n`$inv` - Mira tu inventario de items\n`$use-item (item) or (id)` - Usa un item"
+}

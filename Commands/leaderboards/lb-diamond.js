@@ -17,14 +17,6 @@ module.exports = {
       return value.diamond > 0
     })
 
-    let pos = 0;
-    for(obj of miembro){
-      pos+1
-      if(obj.userID == data.userID){
-        embed.setFooter(`Estas en la posicion - #${pos}`)
-      }
-    }
-
     new_members = miembro.slice(0,10) 
     let list = ""
 

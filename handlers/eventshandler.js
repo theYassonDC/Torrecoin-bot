@@ -6,24 +6,10 @@ module.exports = (client, discord) => {
         const events = fs
             .readdirSync(`./events/${dir}`)
             .filter((file) => file.endsWith(".js"));
-
-        for (const file of events) {
-            try {
-                let evn = require(`../events/${dir}/${file}`);
-
-                if (evn.event && typeof evn.event !== "string") {
-                    console.log(`Error: ${file}`);
-                    continue;
-                }
-
-                evn.event = evn.event || file.replace(".js", "");
-
-                client.on(evn.event, evn.bind(null, client, discord));
-            } catch (error) {
-                console.log("Error en la carga de eventos");
-                console.log(error);
-            }
-        }
+        for(const file of events){
+    const event = require(`../events/${dir}/${file}`)
+    client.on(event.name, (...args) => event.run(client, ...args));
+  }
     });
 
 };
