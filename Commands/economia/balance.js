@@ -7,10 +7,10 @@ module.exports = {
   alias: ["bal", "dinero"],
   async execute(client, message, args) {
     const member = message.mentions.users.first() || message.author
-    let datos = await economia.findOne({ userID: member.id })
+    const datos = await economia.findOne({ userID: member.id })
     if (!datos) {
       const newdata = new economia({
-        userID: user.id,
+        userID: member.id,
         monedas: 0,
         diamond: 0,
         gold: 0,

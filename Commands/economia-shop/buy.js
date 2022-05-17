@@ -44,17 +44,15 @@ try{
           }
         }
         await inventory.findOneAndUpdate(params, data)
-        await eco.findOneAndUpdate({userID: message.author.id}, {monedas: balance - Number(priceItem)})       
+        await eco.findOneAndUpdate({userID: message.author.id}, {monedas: balance - Number(priceItem)})
       }else{
         new inventory({
           server: message.guild.id,
           userID: message.author.id,
           item: {
-            [items.producto]: {
               name: items.producto,
               id: items.id,
               cantidad: 1
-            }
           }
         }).save()
       }

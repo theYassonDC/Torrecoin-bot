@@ -24,3 +24,12 @@ module.exports = {
   }
 }
 ```
+
+# **Estructura Schema**
+```js
+const { Schema, model} = require("mongoose");
+const nombre = new Schema({
+})
+
+module.exports = model(``,)
+```

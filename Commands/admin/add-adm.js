@@ -1,5 +1,5 @@
 const adm = require(`../../Shema/rank`);
-const owner = require('../../public/keys.json');
+const owner = require('../../public/config.json');
 
 module.exports = {
    name: "add-administrador",

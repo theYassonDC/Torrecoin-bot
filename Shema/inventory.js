@@ -4,8 +4,7 @@ module.exports = m.model(`intentory`, new m.Schema({
   server: String,
   userID: String,
   item: {
-    type: Object
-  },
-  itemIds: Object
+    type: Array
+  }
 })
 )

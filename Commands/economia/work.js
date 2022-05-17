@@ -21,30 +21,29 @@ if(!adms){
 }
       const data = await economia.findOne({userID: message.author.id})
       const reply = await replies.find()
-      if(!data){
-          let datosnuevos = new economia({
-              userID: message.author.id,
-              monedas: 0,
-              Diamond: 0
-          })
-          await datosnuevos.save()
-      }
-      const dinero = data.monedas
       const coinFlip = Math.floor(Math.random() * 430) 
     let lista = reply.map((val)=>{
       return val.mensaje + ` <:moneda:909696267821658112>${coinFlip}`
     })
+    if(!data){
+          let datosnuevos = new economia({
+              userID: message.author.id,
+              monedas: coinFlip,
+              Diamond: 0
+          })
+          await datosnuevos.save()
+      }else{
+        await economia.findOneAndUpdate({userID: message.author.id}, {monedas: data.monedas + Number(coinFlip)})
+      }
       const msg = [`felicidades`]
       const randomS = Math.floor(Math.random () * lista.length);
       const random = lista[randomS]
-
 
 
       const embed = new MessageEmbed()
       .setTitle("Trabajaste!")
       .setDescription(`${random}`)
       .setColor(`GREEN`)
-      await economia.findOneAndUpdate({userID: message.author.id}, {monedas: dinero + Number(coinFlip)})
 
       message.reply({embeds: [embed]})
   }
